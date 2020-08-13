@@ -29,3 +29,7 @@ Swagger UI can be accessed locally.
 ```
 http://localhost:9000/docs
 ```
+
+## Testing
+
+Uses [Embedded MongoDB](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo)for testing.
