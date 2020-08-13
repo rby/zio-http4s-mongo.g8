@@ -27,7 +27,7 @@ object HttpServer {
       // using the live one
       clock <- ZIO.access[Clock](identity).provideLayer(Clock.live)
       _ <- basicRequest
-            .get(uri"$host/ping")
+            .get(uri"\$host/ping")
             .response(asString)
             .send()
             .retry(Schedule.recurs(60) && Schedule.spaced(1.second).provide(clock))
@@ -73,7 +73,7 @@ object HttpServer {
   ): RIO[Has[HttpEnv], RESPONSE[A]] =
     for {
       implicit0(sttp: STTP) <- ZIO.access[Has[HttpEnv]](_.get.sttp)
-      url                   = s"$host$path"
-      resp                  <- request(uri"$url").response(responseAs).send()
+      url                   = s"\$host\$path"
+      resp                  <- request(uri"\$url").response(responseAs).send()
     } yield resp
 }
