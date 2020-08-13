@@ -19,7 +19,7 @@ object ExampleController extends CommonController {
       .tag("greet")
       .summary("Greeting service")
 
-  def endpoints = List(echo)
+  def endpoints = List(greet)
 
   def route(env: Main.Env): HttpRoutes[Task] =
     greet.toZioRoutes(env) { name =>
