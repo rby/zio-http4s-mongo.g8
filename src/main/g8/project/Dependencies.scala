@@ -2,18 +2,25 @@ import sbt._
 
 object Dependencies {
   private val diffJsonVersion   = "4.0.2"
+  private val awsSdkVersion     = "2.14.4"
   private val circeVersion      = "0.13.0"
   private val embedMongoVersion = "2.2.0"
   private val enumeratumVersion = "1.6.1"
-  private val http4sVersion     = "0.21.4"
+  private val http4sVersion     = "0.21.7"
   private val mongoVersion      = "2.9.0"
-  private val odinVersion       = "0.7.0"
-  private val pureConfigVersion = "0.12.3"
-  private val refinedVersion    = "0.9.14"
-  private val sttpClientVersion = "2.1.5"
-  private val tapirVersion      = "0.15.3"
-  private val zioCatsVersion    = "2.1.3.0-RC15"
-  private val zioVersion        = "1.0.0-RC20"
+  private val odinVersion       = "0.8.1"    // logging
+  private val pureConfigVersion = "0.13.0"   // config
+  private val refinedVersion    = "0.9.15"
+  private val sttpClientVersion = "2.2.5"
+  private val tapirVersion      = "0.16.15"
+  private val zioCatsVersion    = "2.1.4.0"
+  private val zioVersion        = "1.0.1"
+
+  // aws
+  lazy val `aws-s3`    = "software.amazon.awssdk" % "s3"               % awsSdkVersion
+  lazy val `aws-sqs`   = "software.amazon.awssdk" % "sqs"              % awsSdkVersion
+  lazy val `aws-sts`   = "software.amazon.awssdk" % "sts"              % awsSdkVersion
+  lazy val `aws-netty` = "software.amazon.awssdk" % "netty-nio-client" % awsSdkVersion
 
   // circe
   lazy val `circe-parser`  = "io.circe" %% "circe-parser"  % circeVersion
@@ -43,7 +50,6 @@ object Dependencies {
 
   // pureconfig
   lazy val `pureconfig` = "com.github.pureconfig" %% "pureconfig" % pureConfigVersion
-
 
   // refined
   lazy val `refined`            = "eu.timepit" %% "refined"            % refinedVersion

@@ -51,7 +51,7 @@ object ZioMongoExtensions {
     def empty[E1 >: E](notEmptyError: => E1): IO[E1, Unit] =
       collectEmpty(notEmptyError)
 
-    def all: IO[E, List[A]] = stream.run(Sink.collectAll[A])
+    def all: IO[E, List[A]] = stream.run(Sink.collectAll[A]).map(_.toList)
 
     def allToSet: IO[E, Set[A]] = stream.run(Sink.collectAllToSet[A])
 

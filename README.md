@@ -33,3 +33,10 @@ http://localhost:9000/docs
 ## Testing
 
 Uses [Embedded MongoDB](https://github.com/flapdoodle-oss/de.flapdoodle.embed.mongo)for testing.
+
+## Contributing
+
+### Testing the template locally
+
+> g8 file:///local/path/to/zio-http4s-mongo.g8 --name=project-name
+

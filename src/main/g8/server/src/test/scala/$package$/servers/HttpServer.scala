@@ -21,7 +21,7 @@ object HttpServer {
 
   def asLayer: URLayer[ZEnv, Has[HttpEnv]] = {
     val zioHttpEnv = for {
-      _                     <- Main.run(List("mode=test")).fork >>= (_.disown)
+      _                     <- Main.run(List("mode=test")).forkDaemon
       implicit0(sttp: STTP) <- AsyncHttpClientZioBackend()
       // we don't want the test clock for the retry schedule
       // using the live one
